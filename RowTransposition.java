@@ -4,33 +4,37 @@ import java.io.*;
 class RowTransposition{
 	public static void main(String [] args){
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter the number of rows: ");
+		System.out.println("Enter the number of rows: ");
 		int rows = sc.nextInt();
 		sc.nextLine();
-		System.out.println("Enter the string to encrypt: ");
-		String inputString = sc.nextLine();
-		String encryptedString = rowTranspositionEncryption(inputString,rows);
+		System.out.println("Enter the plain text: ");
+		String plainText = sc.nextLine();
+		encryptMessage(plainText,rows);
 	}
-	static String rowTranspositionEncryption(String input,int key){
-		char[] encryptArray = input.toCharArray();
-		int len = input.length();
-		int k =0;
-		int column = len/key;
-		if(len%column != 0){
-			column+=1;
-		}
-		char[][] matrix = new char[key][column];
-		for(int i=0;i<column;i++){
-			for(int j=0;j<key;j++){
-				matrix[j][i] = encryptArray[k];
-				k++;
-			}
-		}
-		for(int i=0;i<key;i++){
-			for(int j=0;j<column;j++){
-				System.out.print(matrix[i][j]+" ");
-			}
-		}
-		return "Hello";
+
+	public static void encryptMessage(String plainText, int rows){
+		char[] encryptMessageArray = plainText.toCharArray();
+		int len = plainText.length();
+		int columns = len/rows;
+		if(len%rows != 0)
+			columns++;
+		System.out.print("Number of columns: "+columns);
+
+		char[][] matrix = new int[rows][columns];
+        int k=0;
+        for(j=0;j<columns;j++)
+        {
+               
+            for(i=0;i<rows;i++)
+            {
+                if(k == len)
+                {
+                    matrix[i][j]='x';
+                }
+                else 
+                    matrix[i][j]=c[k];
+                k++;
+            }
+        }
 	}
 }
