@@ -7,7 +7,7 @@ class TimeOfExecution{
         ArrayList<Integer> arrlist = new ArrayList<>();
         int i = 0;
         Scanner fileInput;
-        File file = new File("input.txt");
+        File file = new File("input_timeOfExecution.txt");
         try 
         {
             fileInput = new Scanner(file);
